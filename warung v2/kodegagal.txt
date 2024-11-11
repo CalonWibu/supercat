@@ -1,0 +1,99 @@
+else if (pilihanangka = 9){
+						 	system("CLS");
+						 	cout << "----------------------------------------------" << endl;
+			            	cout << "|id|        Makanan          |     Jumlah    |\n"; 
+			            	cout << "----------------------------------------------" << endl;
+			                
+			                	cout << "|1|  " << mam[0] << "  = " << pesanan[0] << endl;
+							
+			                	cout << "|2|  " << mam[1] << "  = " << pesanan[1] << endl;
+						
+			                	cout << "|3|  " << mam[2] << "  = " << pesanan[2] << endl;
+								
+			                	cout << "|4|  " << mam[3] << "  = " << pesanan[3] << endl;
+							
+			                	cout << "|5|  " << mam[4] << "  = " << pesanan[4] << endl;
+						
+			                cout << "\n---------------------------------------------" << endl;
+			                
+			                lewati = "t";
+							 while (lewati == "t") {
+							 	cout << "Pilih Dengan Mengetikkan nomor angkanya atau id! \n\n>> ";
+							 	cin >> pilihanangka;
+							 	if (cin.fail()) {
+							 		cin.clear();
+							 		cin.ignore(1000, '\n');
+			                    	cout << "HEI! Pilihanmu tidak valid, mohon ketik sesuai angka atau id di atas!" << endl;
+								 } else if (pilihanangka > 0 && pilihanangka < 6) {
+								 	lewati = "y";
+								 } else {
+								 	cout << "HEI! Pilihanmu tidak valid, mohon ketik sesuai angka atau id di atas!" << endl;
+								 }
+							 }
+			                
+			                system("CLS");
+						 	for (int j = 1; j < 5; j++) {
+    if (pilihanangka == j) {
+        pilihantetap = pilihanangka;
+        pilihan = pilihanangka - 1;
+        if (pesanan[pilihan] = 0) {
+            cout << "Mohon Maaf, Pesanan dengan id " << pilihantetap << " atau " << mam[0]
+                 << " memiliki jumlah yang tidak memenuhi syarat untuk dihapus karena jumlah barang tersebut pada keranjangmu adalah "
+                 << pesanan[0] << endl;
+        } else if (pesanan[pilihan] > 0) {
+            // Proses hapus
+            lewati = "t";
+            while (lewati == "t") {
+                cout << "Anda mau hapus berapa?\n\n>> ";
+                cin >> pilihanangka;
+                if (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "HEI! Pilihanmu tidak valid, mohon ketik angka yang benar" << endl;
+                } else if (pilihanangka >= 1) {
+                    // Cek apakah produk itu berjumlah - atau +
+                    if (pilihanangka >= pesanan[pilihan]) {
+                        cout << "Maaf, Mohon untuk memasukan angka tidak lebih dari jumlah yang kamu pesan\n";
+                    } else {
+                        lewati = "t";
+                        while (lewati == "t") {
+                            cout << "Apakah Kamu Yakin? y/t\n\n>> ";
+                            cin >> pilihanhuruf;
+                            if (cin.fail()) {
+                                cin.clear();
+                                cin.ignore(1000, '\n');
+                                cout << "HEI! Pilihanmu tidak valid, mohon ketik sesuai pilihan y/t" << endl;
+                            } else if (pilihanhuruf == "y" || pilihanhuruf == "t" || pilihanhuruf == "Y" || pilihanhuruf == "T") {
+                                lewati = "y";
+                                system("CLS");
+                            } else {
+                                cout << "HEI! Pilihanmu tidak valid, mohon ketik sesuai pilihan y/t" << endl;
+                            }
+                        }
+                        if (pilihanhuruf == "y" || pilihanhuruf == "Y") {
+                            lewati = "y";
+                            pesanan[pilihan] = pesanan[pilihan] - pilihanangka;
+                            cout << "Baiklah, Pesanan " << mam[pilihan] << " jumlahnya sudah dikurangi sebanyak " << pilihanangka
+                                 << "\nDan sekarang jumlah " << mam[pilihan] << " adalah " << pesanan[pilihan] << endl;
+                        } else if (pilihanhuruf == "t" || pilihanhuruf == "T") {
+                            lewati = "y";
+                            system("CLS");
+                            cout << "Baik, Anda tidak jadi untuk menghapus " << mam[pilihan];
+                        }
+                        sudah = "t";
+                        menu = "t";
+                        pilihanangka = 2;
+                        pilihan = 0;
+                        pilihantetap = 0;
+                    }
+                } else {
+                    cout << "HEI! Pilihanmu tidak valid, mohon ketik angka di atas 0" << endl;
+                }
+            }
+            break; // Gunakan break untuk menghentikan loop `for` jika kondisi terpenuhi
+        }
+    }
+}
+
+						 	
+						 }
